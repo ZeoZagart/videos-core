@@ -1,0 +1,31 @@
+Final View => 
+	1. n apps <==> n different video-categories <==> n different user-base
+	2. user <==> saw xyz videos <==> liked pqr videos
+
+
+Queries ==> 
+	1. Create-Account <==> appname, user-name, email
+	2. Login <==> appname, user-name, email
+	3. GetVideoSuggestions <==> appname, username
+	4. GetNextVideos <==> appname, username, video-id
+	5. React on video <==> appname, username, video-id, reaction
+
+
+Recommendations ==> 
+	1. Can use something like ScaNN ==> https://www.tensorflow.org/recommenders | https://www.tensorflow.org/recommenders/examples/efficient_serving
+	2. Can generate random lists every few hours
+	3. interleave these for users & show
+
+
+
+DB: 
+Option 1
+	1. App <==> one of sports, poems, music ... 			:: Small set, hardcoded
+	2. AppVideos <==> set of video-ids for this app 		:: Can create video-fetcher interface to create search query for app
+	3. Video <==> id, thumbnail, data
+	4. User-Videos <==> user preferences
+	5. App-User ?? is this required							:: API call can provide app-name, so no need to find app by user
+
+Option 2
+	1. Video <==> [AppNames] + [id, thumbnail, data]
+	2. User-Videos
